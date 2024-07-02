@@ -15,7 +15,12 @@
       </div>
       <div class="form-group">
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" v-model="signupForm.phone" required />
+        <PhoneInput v-model="signupForm.phone" />
+        <vue-tel-input
+          v-model="signupForm.phone"
+          @input="onInput"
+          @country-changed="onCountryChanged"
+        />
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
@@ -45,14 +50,19 @@ export default {
         phone: "",
         password: "",
       },
+      countryCode: "",
     };
   },
   methods: {
+    onCountryChanged(countryData) {
+      this.countryCode = "+" + countryData.dialCode;
+    },
+
     register() {
       window
         .signup(
           this.signupForm.username,
-          this.signupForm.phone,
+          phoneWithCountryCode,
           this.signupForm.password
         )
         .then((response) => {
@@ -74,7 +84,7 @@ export default {
 <style scoped>
 .signup-form {
   box-sizing: border-box;
-  min-width: 400px;
+  min-width: 80%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;

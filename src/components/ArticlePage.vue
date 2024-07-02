@@ -1,21 +1,24 @@
 <template>
-  <div class="article-page">
-    <h1>Latest News</h1>
-    <div class="article-list">
-      <div v-for="article in articles" :key="article.id" class="article-card">
-        <img :src="article.image" alt="Article Image" class="article-image" />
-        <div class="article-content">
-          <h2>{{ article.title }}</h2>
-          <p class="article-preview">{{ article.content }}</p>
-          <p class="article-meta">
-            <span>By {{ article.author }}</span> |
-            <span>{{ article.date }}</span>
-          </p>
-          <button @click="goToArticle(article.id)">Continue Reading</button>
+  <div>
+    <banner></banner>
+    <div class="article-page">
+      <h1>Latest News</h1>
+      <div class="article-list">
+        <div v-for="article in articles" :key="article.id" class="article-card">
+          <img :src="article.image" alt="Article Image" class="article-image" />
+          <div class="article-content">
+            <h2>{{ article.title }}</h2>
+            <p class="article-preview">{{ article.content }}</p>
+            <p class="article-meta">
+              <span>By {{ article.author }}</span> |
+              <span>{{ article.date }}</span>
+            </p>
+            <button @click="goToArticle(article.id)">Continue Reading</button>
+          </div>
         </div>
-      </div>
-      <div class="see-more">
-        <button @click="goToMoreArticles">See More Articles</button>
+        <div class="see-more">
+          <button @click="goToMoreArticles">See More Articles</button>
+        </div>
       </div>
     </div>
   </div>
@@ -23,9 +26,10 @@
 
 <script>
 import { useArticles } from "../composeable/useArticles";
-
+import Banner from "./Banner.vue";
 export default {
   name: "ArticlePage",
+  components: { Banner },
   data() {
     return {
       articles: useArticles().articles,

@@ -63,7 +63,7 @@ export default {
 <style scoped>
 .signup-form {
   box-sizing: border-box;
-  min-width: 400px;
+  min-width: 80%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
