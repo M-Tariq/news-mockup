@@ -32,7 +32,6 @@ export default {
 
   methods: {
     handleStorageChange(event) {
-      debugger;
       console.log("Storage event fired:", event);
       if (event.key === "isLoggedIn") {
         this.isLoggedIn = event.newValue === "true";
@@ -48,6 +47,7 @@ export default {
 
     logout() {
       localStorage.removeItem("isLoggedIn");
+      window.dispatchEvent(new Event("storage"));
       this.isLoggedIn = false;
       console.log("Logged out. Redirecting to /");
       this.$router.push("/");

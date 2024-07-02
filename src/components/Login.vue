@@ -45,11 +45,13 @@ export default {
           this.resetForm();
           this.goToOtpVerification();
           localStorage.setItem("isLoggedIn", true);
+          window.dispatchEvent(new Event("storage"));
         })
         .catch((error) => {
           console.error(error.message);
           alert("Login failed!");
           localStorage.clear();
+          window.dispatchEvent(new Event("storage"));
         });
     },
 
