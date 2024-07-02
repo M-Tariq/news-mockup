@@ -2,14 +2,14 @@
   <div class="navbar">
     <div class="brand" @click="goToHomePage">
       <h1>News Site</h1>
-      <!-- Replace with your brand name or logo -->
     </div>
     <div class="nav-items">
-      <button v-if="isLoggedIn" class="login-btn" @click="logout">Logout</button>
+      <button v-if="isLoggedIn" class="login-btn" @click="logout">
+        Logout
+      </button>
       <button v-else class="login-btn" @click="login">Login</button>
     </div>
   </div>
-  <!-- Your main content here -->
 </template>
 
 <script>
@@ -27,29 +27,24 @@ export default {
   },
 
   beforeDestroy() {
-    // window.removeEventListener("storage", this.handleStorageChange);
+    window.removeEventListener("storage", this.handleStorageChange);
   },
 
   methods: {
     handleStorageChange(event) {
-      console.log("Storage event fired:", event);
-      if (event.key === "isLoggedIn") {
-        this.isLoggedIn = event.newValue === "true";
-        console.log("isLoggedIn updated:", this.isLoggedIn);
-      }
+      this.isLoggedIn = localStorage.getItem("isLoggedIn");
     },
 
     login() {
-      console.log("Logged in. Redirecting to /login");
       this.$router.push("/login");
       this.isLoggedIn = false;
     },
 
     logout() {
+      alert("Logged Out Successfully.");
       localStorage.removeItem("isLoggedIn");
       window.dispatchEvent(new Event("storage"));
       this.isLoggedIn = false;
-      console.log("Logged out. Redirecting to /");
       this.$router.push("/");
     },
 

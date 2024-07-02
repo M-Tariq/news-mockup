@@ -18,6 +18,16 @@ window.login = (username, password) => {
   });
 };
 
+window.logout = () => {
+  return new Promise((resolve, reject) => {
+    if (localStorage.getItem("isLoggedIn")) {
+      resolve({ message: "Logout successful!" });
+    } else {
+      reject({ message: "Already logged out!" });
+    }
+  });
+};
+
 window.otpverify = (passcode) => {
   return new Promise((resolve, reject) => {
     if (passcode === "123456") {

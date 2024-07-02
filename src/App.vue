@@ -34,7 +34,6 @@ export default {
       window
         .logout()
         .then((response) => {
-          console.log(response.message);
           alert("Logged out!");
           localStorage.clear();
           this.$router.push("/login");
