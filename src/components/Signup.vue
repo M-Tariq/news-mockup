@@ -6,12 +6,7 @@
     <form @submit.prevent="register">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          v-model="signupForm.username"
-          required
-        />
+        <input type="text" id="username" v-model="signupForm.username" required />
       </div>
       <div class="form-group">
         <label for="phone">Phone Number:</label>
@@ -24,12 +19,7 @@
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          v-model="signupForm.password"
-          required
-        />
+        <input type="password" id="password" v-model="signupForm.password" required />
       </div>
       <button type="submit">Sign Up</button>
     </form>
@@ -60,11 +50,7 @@ export default {
 
     register() {
       window
-        .signup(
-          this.signupForm.username,
-          phoneWithCountryCode,
-          this.signupForm.password
-        )
+        .signup(this.signupForm.username, phoneWithCountryCode, this.signupForm.password)
         .then((response) => {
           console.log(response.message);
           this.$router.push("/login");
@@ -84,12 +70,13 @@ export default {
 <style scoped>
 .signup-form {
   box-sizing: border-box;
-  min-width: 80%;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  margin-top: 100px;
 }
 
 h2 {
@@ -113,6 +100,10 @@ input[type="password"] {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.vue-tel-input {
+  margin: 0 8px !important;
 }
 
 button {

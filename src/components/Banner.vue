@@ -15,15 +15,15 @@
     </div>
   </div>
 </template>
-  
-  <style scoped>
+
+<style scoped>
 .banner {
   position: relative;
   text-align: center;
   color: white;
-
+  margin-top: 10px;
   max-width: 80% !important;
-  margin: auto;
+  margin-top: 108px;
 }
 
 .banner-image {
@@ -53,4 +53,3 @@
   margin: 0 auto;
 }
 </style>
-  

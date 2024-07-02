@@ -6,21 +6,11 @@
     <form @submit.prevent="login">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          v-model="signinForm.username"
-          required
-        />
+        <input type="text" id="username" v-model="signinForm.username" required />
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          v-model="signinForm.password"
-          required
-        />
+        <input type="password" id="password" v-model="signinForm.password" required />
       </div>
       <button type="submit">Sign In</button>
     </form>
@@ -78,12 +68,13 @@ export default {
 <style scoped>
 .signup-form {
   box-sizing: border-box;
-  min-width: 80%;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  margin-top: 100px;
 }
 
 h2 {

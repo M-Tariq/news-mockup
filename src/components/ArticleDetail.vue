@@ -9,8 +9,8 @@
     <button @click="goBack">Back to Articles</button>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { useArticles } from "../composeable/useArticles";
 export default {
   name: "ArticleDetail",
@@ -40,12 +40,13 @@ export default {
   },
 };
 </script>
-  
-  <style scoped>
+
+<style scoped>
 .article-detail {
   padding: 20px;
   max-width: 800px;
   margin: auto;
+  margin-top: 100px;
 }
 
 .article-image {
@@ -80,4 +81,3 @@ button:hover {
   background-color: #0056b3;
 }
 </style>
-  
